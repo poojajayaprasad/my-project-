@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "com.example.app"  // ✅ Add this line (Required for AGP 8+)
+    compileSdk 34  // ✅ No need for 'Version' suffix
+
+    defaultConfig {
+        applicationId "com.example.app"
+        minSdk 21  // ✅ No need for 'Version' suffix
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+}
